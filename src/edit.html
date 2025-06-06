@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Editor | TechPro Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .editor-section {
+            border: 2px dashed #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        .editor-section:hover {
+            border-color: #3b82f6;
+            background-color: #f8fafc;
+        }
+        .editor-section.active {
+            border-color: #3b82f6;
+            border-style: solid;
+            background-color: #eff6ff;
+        }
+        .content-editor {
+            min-height: 200px;
+            resize: vertical;
+        }
+        .preview-mode {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+        }
+        .toolbar-btn {
+            transition: all 0.2s ease;
+        }
+        .toolbar-btn:hover {
+            background-color: #f3f4f6;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <span class="text-blue-600 text-2xl font-bold">TechPro<span class="text-gray-800">Hub</span></span>
+                    <span class="ml-4 text-gray-500">Blog Editor</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    
+                    <button class="toolbar-btn px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        <i class="fas fa-save mr-2"></i>Save Draft
+                    </button>
+                    <button class="toolbar-btn px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                        <i class="fas fa-upload mr-2"></i>Publish
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Editor -->
+                <div class="lg:col-span-2">
+                    <!-- Article Meta Information -->
+                    <div class="editor-section bg-white p-6 rounded-lg mb-6">
+                        <h2 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-info-circle mr-2 text-blue-600"></i>
+                            Article Information
+                        </h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Title</label>
+                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter article title" value="Mastering Task Batching: Triple Your Productivity">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <option>Productivity</option>
+                                    <option>Technology</option>
+                                    <option>Remote Work</option>
+                                    <option>Business</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Publish Date</label>
+                                <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" value="2023-07-15">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Read Time (min)</label>
+                                <input type="number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="8" value="8">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <option>Draft</option>
+                                    <option>Published</option>
+                                    <option>Scheduled</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">SEO Description</label>
+                            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" rows="2" placeholder="Brief description for search engines...">Learn how task batching can triple your productivity by reducing context switching and creating focused work sessions.</textarea>
+                        </div>
+                    </div>
+
+                    <!-- Author Information -->
+                    <div class="editor-section bg-white p-6 rounded-lg mb-6">
+                        <h2 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-user-edit mr-2 text-blue-600"></i>
+                            Author Information
+                        </h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Author Name</label>
+                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" value="James Wilson">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Author Title</label>
+                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" value="Productivity Coach & Time Management Expert">
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Author Bio</label>
+                            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" rows="3">James is a productivity coach who has helped over 500 professionals optimize their workflows. His Time Mastery System has been featured in Forbes, Fast Company, and Harvard Business Review.</textarea>
+                        </div>
+                    </div>
+
+                    <!-- Featured Image -->
+                    <div class="editor-section bg-white p-6 rounded-lg mb-6">
+                        <h2 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-image mr-2 text-blue-600"></i>
+                            Featured Image
+                        </h2>
+                        
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors">
+                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                            <p class="text-gray-600 mb-2">Drag & drop an image or click to browse</p>
+                            <input type="file" class="hidden" id="featured-image" accept="image/*">
+                            <button onclick="document.getElementById('featured-image').click()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                Choose Image
+                            </button>
+                            <p class="text-sm text-gray-500 mt-2">Recommended: 1200x600px, max 2MB</p>
+                        </div>
+                    </div>
+
+                    <!-- Content Editor -->
+                    <div class="editor-section bg-white p-6 rounded-lg mb-6">
+                        <h2 class="text-xl font-bold mb-4 flex items-center">
+                            <i class="fas fa-edit mr-2 text-blue-600"></i>
+                            Article Content
+                        </h2>
+                        
+                        <!-- Content Toolbar -->
+                        <div class="border-b border-gray-200 pb-4 mb-4">
+                            <div class="flex flex-wrap gap-2">
+                                <button class="toolbar-btn px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50">
+                                    <i class="fas fa-bold"></i>
+                                </button>
+                                <button class="toolbar-btn px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50">
+                                    <i class="fas fa-italic"></i>
+                                </button>
+                                <button class="toolbar-btn px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50">
+                                    <i class="fas fa-list-ul"></i>
+                                </button>
+                                <button class="toolbar-btn px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50">
+                                    <i class="fas fa-list-ol"></i>
+                                </button>
+                                <button class="toolbar-btn px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50">
+                                    <i class="fas fa-link"></i>
+                                </button>
+                                <button class="toolbar-btn px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50">
+                                    <i class="fas fa-quote-right"></i>
+                                </button>
+                                <button class="toolbar-btn px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sections -->
+                        <div class="space-y-6">
+                            <!-- Introduction -->
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h3 class="font-semibold text-gray-700">What is Task Batching?</h3>
+                                    <div class="flex space-x-2">
+                                        <button class="text-gray-500 hover:text-blue-600">
+                                            <i class="fas fa-arrow-up"></i>
+                                        </button>
+                                        <button class="text-gray-500 hover:text-blue-600">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </button>
+                                        <button class="text-gray-500 hover:text-red-600">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea class="content-editor w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500" rows="4">Task batching is a productivity technique where you group similar tasks together and complete them in dedicated time blocks. This approach minimizes context switching and allows you to enter a state of deep focus, dramatically increasing your efficiency and output quality.</textarea>
+                            </div>
+
+                            <!-- Science Section -->
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h3 class="font-semibold text-gray-700">The Science Behind Task Batching</h3>
+                                    <div class="flex space-x-2">
+                                        <button class="text-gray-500 hover:text-blue-600">
+                                            <i class="fas fa-arrow-up"></i>
+                                        </button>
+                                        <button class="text-gray-500 hover:text-blue-600">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </button>
+                                        <button class="text-gray-500 hover:text-red-600">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea class="content-editor w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500" rows="3">Research shows that task batching works because:</textarea>
+                                
+                                <!-- List Items -->
+                                <div class="mt-3 space-y-2">
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-gray-500 mt-2">•</span>
+                                        <input type="text" class="flex-1 px-2 py-1 border border-gray-300 rounded text-sm" value="Reduces context switching - Studies show it takes an average of 23 minutes to fully refocus after an interruption">
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-gray-500 mt-2">•</span>
+                                        <input type="text" class="flex-1 px-2 py-1 border border-gray-300 rounded text-sm" value="Leverages cognitive momentum - Your brain stays in the same 'mode' for similar tasks">
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <span class="text-gray-500 mt-2">•</span>
+                                        <input type="text" class="flex-1 px-2 py-1 border border-gray-300 rounded text-sm" value="Minimizes setup time - You only prepare once for a batch of similar tasks">
+                                    </div>
+                                    <button class="text-blue-600 text-sm hover:text-blue-800 mt-2">
+                                        <i class="fas fa-plus mr-1"></i>Add List Item
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Case Study -->
+                            <div class="border border-green-200 bg-green-50 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h3 class="font-semibold text-green-800">Case Study: Email Management</h3>
+                                    <div class="flex space-x-2">
+                                        <button class="text-green-600 hover:text-green-800">
+                                            <i class="fas fa-arrow-up"></i>
+                                        </button>
+                                        <button class="text-green-600 hover:text-green-800">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </button>
+                                        <button class="text-green-600 hover:text-red-600">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea class="content-editor w-full px-3 py-2 border border-green-300 rounded focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white" rows="3">Instead of checking email constantly throughout the day, a marketing director implemented three dedicated email batches (morning, after lunch, and before leaving). This reduced her email time from 3+ hours daily to just 1.5 hours while improving response quality.</textarea>
+                            </div>
+                        </div>
+
+                        <!-- Add Section Button -->
+                        <div class="mt-6 text-center">
+                            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-plus mr-2"></i>Add New Section
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <!-- Quick Actions -->
+                    <div class="bg-white p-6 rounded-lg mb-6">
+                        <h3 class="text-lg font-bold mb-4">Quick Actions</h3>
+                        <div class="space-y-3">
+                            <button class="w-full text-left px-4 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                                <i class="fas fa-magic mr-2 text-purple-600"></i>
+                                AI Content Suggestions
+                            </button>
+                            <button class="w-full text-left px-4 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                                <i class="fas fa-spell-check mr-2 text-green-600"></i>
+                                Grammar Check
+                            </button>
+                            <button class="w-full text-left px-4 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                                <i class="fas fa-search mr-2 text-blue-600"></i>
+                                SEO Analysis
+                            </button>
+                            <button class="w-full text-left px-4 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                                <i class="fas fa-chart-line mr-2 text-orange-600"></i>
+                                Readability Score
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Related Articles -->
+                    <div class="bg-white p-6 rounded-lg mb-6">
+                        <h3 class="text-lg font-bold mb-4">Related Articles</h3>
+                        <div class="space-y-4">
+                            <div class="border border-gray-200 rounded-lg p-3">
+                                <h4 class="font-medium text-sm mb-1">The 2023 Productivity Stack</h4>
+                                <p class="text-xs text-gray-500">June 28, 2023</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-3">
+                                <h4 class="font-medium text-sm mb-1">Time Blocking: The Executive's Secret Weapon</h4>
+                                <p class="text-xs text-gray-500">May 15, 2023</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-3">
+                                <h4 class="font-medium text-sm mb-1">Deep Work in a Distracted World</h4>
+                                <p class="text-xs text-gray-500">April 2, 2023</p>
+                            </div>
+                        </div>
+                        <button class="w-full mt-4 px-4 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors text-sm">
+                            <i class="fas fa-link mr-2"></i>Link Articles
+                        </button>
+                    </div>
+
+                    <!-- Publishing Settings -->
+                    <div class="bg-white p-6 rounded-lg">
+                        <h3 class="text-lg font-bold mb-4">Publishing Settings</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2" checked>
+                                    <span class="text-sm">Allow comments</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2" checked>
+                                    <span class="text-sm">Enable social sharing</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">Featured article</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2" checked>
+                                    <span class="text-sm">Send newsletter</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-4 border-t border-gray-200">
+                            <h4 class="font-medium mb-2">SEO Tags</h4>
+                            <div class="flex flex-wrap gap-2 mb-2">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">productivity</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">time-management</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">batching</span>
+                            </div>
+                            <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded text-sm" placeholder="Add tags...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make sections focusable
+            const sections = document.querySelectorAll('.editor-section');
+            sections.forEach(section => {
+                section.addEventListener('click', function() {
+                    sections.forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Auto-resize textareas
+            const textareas = document.querySelectorAll('textarea');
+            textareas.forEach(textarea => {
+                textarea.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = this.scrollHeight + 'px';
+                });
+            });
+
+            // Toolbar button interactions
+            const toolbarBtns = document.querySelectorAll('.toolbar-btn');
+            toolbarBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Add your toolbar functionality here
+                    console.log('Toolbar action:', this.textContent.trim());
+                });
+            });
+        });
+    </script>
+</body>
+</html>

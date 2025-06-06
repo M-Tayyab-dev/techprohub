@@ -1,0 +1,151 @@
+ html {
+      scroll-behavior: smooth;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Rubik', sans-serif;
+      color: #333;
+      background-color: #f9fafb;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Rubik', sans-serif;
+    }
+
+    .font-rubik {
+      font-family: 'Rubik', sans-serif !important;
+    }
+
+    /* Hover Cards */
+    .card-hover:hover,
+    .blog-post-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Gradient Background */
+    .gradient-bg {
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    }
+
+    /* Blog Cards */
+    .blog-post-card {
+      transition: all 0.3s ease;
+    }
+
+    /* Form Validation */
+    .error-message {
+      color: #ff3333;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    #emailInput:invalid {
+      border-color: #ff3333;
+    }
+
+    #emailInput:valid {
+      border-color: #4caf50;
+    }
+
+    /* Banner Overlay and Text */
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+
+    .banner-content {
+      z-index: 1;
+    }
+
+    .banner-text {
+      transition: all 0.3s ease;
+      color: #FFFF00;
+    }
+
+    .banner-text:hover {
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2563eb;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0a1c42;
+    }
+
+    /* Action Buttons */
+    .blog-post-card .action-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .blog-post-card .action-buttons button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.25rem;
+      transition: all 0.2s ease;
+      color: #6b7280;
+    }
+
+    .blog-post-card .action-buttons button:hover {
+      color: #3b82f6;
+      transform: scale(1.1);
+    }
+
+    .blog-post-card .action-buttons button.delete:hover {
+      color: #ef4444;
+    }
+
+    .blog-post-card .action-buttons button:active {
+      transform: scale(0.95);
+    }
+
+    /* Glassmorphism Box - FIXED: Removed font override */
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .height {
+      height: 550px;
+    }
+
+    .banner-height {
+      height: 490px !important;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 640px) {
+      .blog-post-card .action-container {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .blog-post-card .action-buttons {
+        justify-content: flex-end;
+      }
+    }

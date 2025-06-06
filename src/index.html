@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <title>TechPro Hub | Technology, Productivity & Remote Work</title> -->
+    <title>TechPro Hub</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+      id="tailwindcss"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+      /* Custom dark mode overrides for non-Tailwind elements */
+      html.dark body {
+        background-color: #18181b;
+        color: #e5e7eb;
+      }
+      html.dark .glass-box {
+        background: rgba(36, 36, 42, 0.7);
+        color: #e5e7eb;
+      }
+      html.dark .banner-content h1,
+      html.dark .banner-content p {
+        color: #e5e7eb;
+      }
+      html.dark .blog-post-card {
+        background: #23232b;
+        color: #e5e7eb;
+      }
+      html.dark .bg-white {
+        background-color: #23232b !important;
+      }
+      html.dark .bg-gray-50 {
+        background-color: #18181b !important;
+      }
+      html.dark .text-gray-700,
+      html.dark .text-gray-600 {
+        color: #d1d5db !important;
+      }
+      html.dark .text-black {
+        color: #e5e7eb !important;
+      }
+      html.dark .bg-gray-800 {
+        background-color: #111827 !important;
+      }
+      html.dark .text-white {
+        color: #e5e7eb !important;
+      }
+      html.dark .bg-gray-200 {
+        background-color: #23232b !important;
+      }
+      html.dark .bg-gray-100 {
+        background-color: #23232b !important;
+      }
+      html.dark .bg-blue-100 {
+        background-color: #1e293b !important;
+      }
+      html.dark .bg-green-100 {
+        background-color: #14532d !important;
+      }
+      html.dark .bg-purple-100 {
+        background-color: #3b0764 !important;
+      }
+      html.dark .gradient-bg {
+        background: linear-gradient(90deg, #23232b 0%, #18181b 100%);
+      }
+      html.dark .banner-image img.hero-img {
+        filter: brightness(0.92);
+      }
+      /* Remove overlay for dark mode */
+      html.dark #hero-overlay {
+        display: none;
+      }
+      /* Overlay handled by Tailwind classes in the HTML */
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <span class="text-blue-600 text-2xl font-bold"
+              ><a href="#"
+                >TechPro<span class="text-gray-800 dark:text-blue-200">Hub</span></a
+              ></span
+            >
+            <!-- Dark mode toggle button -->
+            <button id="dark-mode-toggle" class="ml-6 p-2 rounded focus:outline-none text-gray-500 hover:text-blue-600 dark:text-blue-300" title="Toggle dark mode">
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="#technology"
+              class="text-gray-700 hover:text-blue-600 font-medium"
+              >Technology</a
+            >
+            <a
+              href="#productivity"
+              class="text-gray-700 hover:text-blue-600 font-medium"
+              >Productivity</a
+            >
+            <a
+              href="#remote-work"
+              class="text-gray-700 hover:text-blue-600 font-medium"
+              >Remote Work</a
+            >
+            <a
+              href="signup.html"
+              class="text-gray-700 hover:text-blue-600 font-medium"
+              id="auth-nav-link"
+              >Sign Up</a
+            >
+            <a
+              href="#about"
+              class="text-gray-700 hover:text-blue-600 font-medium"
+              >About</a
+            >
+          </nav>
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-gray-500 hover:text-blue-600 focus:outline-none"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden mt-2 py-2">
+          <a
+            href="#technology"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Technology</a
+          >
+          <a
+            href="#productivity"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Productivity</a
+          >
+          <a
+            href="#remote-work"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Remote Work</a
+          >
+          <a
+            href="signup.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            id="auth-mobile-nav-link"
+            >Sign Up</a
+          >
+          <a
+            href="#about"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >About</a
+          >
+          <a
+            href="privacy-policy.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Privacy Policy</a
+          >
+          <a
+            href="terms-of-service.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Terms of Service</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section with Banner -->
+<main>
+    <section class="hero-banner relative">
+      <div class="banner-image relative">
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2070&q=80"
+          alt="Tech and productivity banner"
+          class="w-full h-full object-cover transition duration-500 hero-img dark:hidden"
+          id="hero-img"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=2070&q=80"
+          alt="Tech and productivity banner dark"
+          class="w-full h-full object-cover transition duration-500 hero-img hidden dark:block"
+          id="hero-img-dark"
+        />
+        <!-- Overlay for light mode only -->
+        <div class="absolute inset-0 bg-white bg-opacity-0 pointer-events-none transition duration-500 dark:hidden" id="hero-overlay"></div>
+      </div>
+      <div
+        class="banner-content absolute inset-0 flex items-center justify-center"
+      >
+        <div class="container mx-auto px-4 text-center">
+          <div class="glass-box max-w-3xl mx-auto p-6 rounded-2xl">
+            <h1
+              class="text-4xl md:text-5xl font-bold mb-6 text-black drop-shadow-lg"
+            >
+              Navigate the Digital Future
+            </h1>
+            <p class="text-xl mb-8 text-black drop-shadow-lg">
+              Insights on Technology, Productivity, and Remote Work for the
+              Modern Professional
+            </p>
+          </div>
+          <div class="flex justify-center my-4">
+            <a
+              href="#featured"
+              class="bg-white text-blue-600 hover:bg-gray-100 font-medium px-6 py-3 rounded-lg shadow-md transition duration-300 ease-in-out"
+            >
+              Explore Articles
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+</main>
+    <!-- Featured Section -->
+    <section id="featured" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Featured Articles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Featured Tech Article -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-microchip text-5xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >Technology</span
+                >
+                <span class="text-gray-500 text-sm ml-2">June 12, 2023</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2">
+                The Rise of Quantum Computing: What Professionals Need to Know
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Quantum computing is poised to revolutionize industries from
+                finance to healthcare. Learn how this technology will impact
+                your career.
+              </p>
+              <a
+                href="1.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Featured Productivity Article -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-tasks text-5xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >Productivity</span
+                >
+                <span class="text-gray-500 text-sm ml-2">June 5, 2023</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2">
+                Mastering Task Batching: Triple Your Productivity
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Task batching is a powerful technique that can dramatically
+                reduce context switching and help you get more done in less
+                time.
+              </p>
+              <a
+                href="2.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Featured Remote Work Article -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-laptop-house text-5xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >Remote Work</span
+                >
+                <span class="text-gray-500 text-sm ml-2">May 28, 2023</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2">
+                Building a Remote-First Culture That Thrives
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Remote work requires more than just tools—it demands a cultural
+                shift. Discover how leading companies are building thriving
+                remote cultures.
+              </p>
+              <a
+                href="3.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center mb-12">
+          <div
+            class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4"
+          >
+            <i class="fas fa-microchip text-blue-600 text-2xl"></i>
+          </div>
+          <h2 class="text-3xl font-bold text-center">Technology</h2>
+          <p class="text-gray-600 text-center mt-4 max-w-2xl">
+            Stay informed about emerging technologies and digital trends that
+            are reshaping industries and creating new opportunities.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Tech Article 1 -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-40 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-robot text-4xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >AI</span
+                >
+                <span class="text-gray-500 text-sm ml-2">June 8, 2023</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">
+                How Generative AI is Transforming Content Creation
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Explore how AI tools like GPT-4 are changing the landscape of
+                content creation and what it means for creators.
+              </p>
+              <a
+                href="tech-2.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Tech Article 2 -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-40 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-lock text-4xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >Cybersecurity</span
+                >
+                <span class="text-gray-500 text-sm ml-2">June 1, 2023</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">
+                Zero Trust Security: The New Standard for Enterprise
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Why organizations are abandoning traditional security models in
+                favor of Zero Trust architectures.
+              </p>
+              <a
+                href="tech-3.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Tech Article 3 -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-40 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-vr-cardboard text-4xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >AR/VR</span
+                >
+                <span class="text-gray-500 text-sm ml-2">May 25, 2023</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">
+                Augmented Reality in Professional Training: Case Studies
+              </h3>
+              <p class="text-gray-600 mb-4">
+                How companies are using AR to revolutionize employee training
+                and reduce costs.
+              </p>
+              <a href="#" class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10 invisible">
+          <a
+            href="#"
+            class="inline-block border border-blue-600 text-blue-600 font-medium px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300"
+          >
+            View All Technology Articles
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Productivity Section -->
+    <section id="productivity" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center mb-12">
+          <div
+            class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4"
+          >
+            <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+          </div>
+          <h2 class="text-3xl font-bold text-center">Productivity</h2>
+          <p class="text-gray-600 text-center mt-4 max-w-2xl">
+            Discover strategies, tools, and techniques to optimize your workflow
+            and accomplish more with less effort.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Productivity Article 1 -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-40 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-brain text-4xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >Focus</span
+                >
+                <span class="text-gray-500 text-sm ml-2">April 10, 2023</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">
+                Deep Work in a Distracted World: Practical Techniques
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Implementing Cal Newport's deep work principles in today's
+                notification-filled environment.
+              </p>
+              <a
+                href="productivity-1.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Productivity Article 2 -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-40 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-laptop-code text-4xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >Tools</span
+                >
+                <span class="text-gray-500 text-sm ml-2">March 18, 2023</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">
+                The 2023 Productivity Stack: Tools That Work Together
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A curated list of productivity apps that integrate seamlessly to
+                create a frictionless workflow.
+              </p>
+              <a
+                href="productivity-stack.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Productivity Article 3 -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-40 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-bed text-4xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >Wellbeing</span
+                >
+                <span class="text-gray-500 text-sm ml-2">May 27, 2023</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">
+                Sleep Optimization: The Forgotten Productivity Hack
+              </h3>
+              <p class="text-gray-600 mb-4">
+                How improving your sleep quality can dramatically enhance your
+                cognitive performance and output.
+              </p>
+              <a
+                href="productivity-3.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10 invisible">
+          <a
+            href="#"
+            class="inline-block border border-blue-600 text-blue-600 font-medium px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300"
+          >
+            View All Productivity Articles
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Remote Work Section -->
+    <section id="remote-work" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center mb-12">
+          <div
+            class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-4"
+          >
+            <i class="fas fa-home text-purple-600 text-2xl"></i>
+          </div>
+          <h2 class="text-3xl font-bold text-center">Remote Work</h2>
+          <p class="text-gray-600 text-center mt-4 max-w-2xl">
+            Navigate the challenges and opportunities of remote and hybrid work
+            models with expert insights and proven strategies.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Remote Work Article 1 -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-40 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-video text-4xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >Communication</span
+                >
+                <span class="text-gray-500 text-sm ml-2">June 7, 2023</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">
+                Asynchronous Communication: When to Use It and When Not To
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Finding the right balance between sync and async communication
+                in distributed teams.
+              </p>
+              <a
+                href="rw.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Remote Work Article 2 -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-40 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-users text-4xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >Culture</span
+                >
+                <span class="text-gray-500 text-sm ml-2">May 31, 2023</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">
+                Virtual Team Building That Doesn't Feel Forced
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Authentic ways to build connection and camaraderie in remote
+                teams without the cringe factor.
+              </p>
+              <a
+                href="rw-1.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Remote Work Article 3 -->
+          <div
+            class="blog-post-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-40 bg-gray-200 flex items-center justify-center">
+              <i class="fas fa-globe text-4xl text-gray-400"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-2">
+                <span
+                  class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded"
+                  >Global</span
+                >
+                <span class="text-gray-500 text-sm ml-2">May 22, 2023</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">
+                Managing Across Time Zones: Best Practices for Global Teams
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Strategies for effective collaboration when your team spans
+                multiple continents and time zones.
+              </p>
+              <a
+                href="rw-3.html"
+                class="text-blue-600 font-medium hover:text-blue-800"
+                >Read More →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10 invisible">
+          <a
+            href="#"
+            class="inline-block border border-blue-600 text-blue-600 font-medium px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300"
+          >
+            View All Remote Work Articles
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 gradient-bg text-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-4">Join Our Newsletter</h2>
+          <p class="text-xl mb-8">
+            Get the latest insights on technology, productivity, and remote work
+            delivered to your inbox.
+          </p>
+          <form class="flex flex-col md:flex-row gap-3 justify-center">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="px-5 py-3 rounded-lg focus:outline-none text-gray-700 w-full md:w-auto"
+            />
+            <button
+              type="submit"
+              class="bg-white text-blue-600 hover:bg-gray-100 font-medium px-6 py-3 rounded-lg transition duration-300 w-full md:w-auto"
+            >
+              Subscribe
+            </button>
+          </form>
+          <p class="text-sm mt-4 opacity-80">
+            We respect your privacy. Unsubscribe at any time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-8">About TechPro Hub</h2>
+          <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+            <p class="text-gray-700 mb-4">
+              TechPro Hub is a multi-niche blog dedicated to helping
+              professionals navigate the intersection of technology,
+              productivity, and remote work. Our mission is to provide
+              actionable insights, evidence-based strategies, and thoughtful
+              analysis to help you thrive in the digital economy.
+            </p>
+            <p class="text-gray-700 mb-4">
+              Founded in 2025, we bring together experts from various fields to
+              share their knowledge and experiences. Whether you're a tech
+              enthusiast, a productivity geek, or a remote work advocate, you'll
+              find valuable content to help you level up your skills and stay
+              ahead of the curve.
+            </p>
+            <p class="text-gray-700">
+              We believe that the future of work is being shaped by
+              technological innovation, productivity optimization, and flexible
+              work arrangements. By covering these interconnected topics, we aim
+              to provide a holistic perspective on the changing nature of work
+              and careers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">
+              TechPro<span class="text-blue-400">Hub</span>
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Insights for the digital professional at the intersection of
+              technology, productivity, and remote work.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-blue-400"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-blue-400"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-blue-400"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-blue-400"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Categories</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#technology" class="text-gray-300 hover:text-blue-400"
+                  >Technology</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#productivity"
+                  class="text-gray-300 hover:text-blue-400"
+                  >Productivity</a
+                >
+              </li>
+              <li>
+                <a href="#remote-work" class="text-gray-300 hover:text-blue-400"
+                  >Remote Work</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#about" class="text-gray-300 hover:text-blue-400"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-blue-400"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-blue-400"
+                  >Write for Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Legal</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="privacy-policy.html"
+                  class="text-gray-300 hover:text-blue-400"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="terms-of-service.html"
+                  class="text-gray-300 hover:text-blue-400"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-blue-400"
+                  >Cookie Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 TechPro Hub. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="js/navigation.js"></script>
+    <script>
+      // Dark mode toggle logic
+      const darkToggle = document.getElementById('dark-mode-toggle');
+      const root = document.documentElement;
+      // Check localStorage for preference
+      if (localStorage.getItem('theme') === 'dark' ||
+          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+      darkToggle.addEventListener('click', () => {
+        root.classList.toggle('dark');
+        if (root.classList.contains('dark')) {
+          localStorage.setItem('theme', 'dark');
+        } else {
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    </script>
+    <script src="js/testscripts.js"></script>
+  </body>
+</html>
